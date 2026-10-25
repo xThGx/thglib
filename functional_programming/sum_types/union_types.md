@@ -30,6 +30,6 @@ Doc2Doc needs to parse documents without throwing exceptions for ordinary failur
         If the provided value is `Parsed`, return `Parsed <doc_name>: <N>` characters, where `<N>` is the length of the parsed text.
         If the provided value is `ParseError`, return `Failed <doc_name>: <err>`.
 
-Tip
+## Tip
 
 Use [`isinstance`](https://docs.python.org/3/builtins/functions.html#isinstance) to check which type of value you're working with.
