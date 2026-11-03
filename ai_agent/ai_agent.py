@@ -20,6 +20,7 @@ def main():
     # Set up argument parser to accept user prompt from command line
     parser = argparse.ArgumentParser(description="AI-Agent")
     parser.add_argument("user_prompt", type=str, help="User prompt")
+    parser.add_argument("--verbose", action="store_true", help="Enable verbose output")
     args = parser.parse_args()
 
     # Initialize the OpenAI client with the API key
@@ -43,9 +44,11 @@ def main():
     # Check if the response is valid
     if not response:
         raise RuntimeError("No response from the API.")
-    
-    print("Prompt tokens:", response.usage.prompt_tokens)
-    print("Response tokens:", response.usage.completion_tokens)
+
+    if args.verbose:
+        print("User prompt:", args.user_prompt)
+        print("Prompt tokens:", response.usage.prompt_tokens)
+        print("Response tokens:", response.usage.completion_tokens)
     print(response.choices[0].message.content)
 
 
