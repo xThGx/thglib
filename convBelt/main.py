@@ -141,7 +141,7 @@ def main():
             lastCycleTime = cycleTime.elapsed()
             print("*" *50)
             print()
-            print(f"Last Cycle took {lastCycleTime:.2f}s")
+            print(f"Last Cycle took {lastCycleTime:.2f}sec")
             print()
             print("*" *50)
         cycleTime.update(cycleTimeOn)
