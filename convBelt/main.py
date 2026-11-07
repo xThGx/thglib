@@ -2,15 +2,24 @@ import time
 import keyboard as kb
 import random
 
-class Motor:
-    def __init__(self, name):
-        self.name: str = name
-        self.status: bool = False
+class Drives():
+    def __init__(self, name: str, status: bool = False, dir: str = "cw", acc: float = 100, dcc: float = 100, speed: float = 200):
+        self.name = name
+        self.status = status
+        self.dir = dir
+        self.acc = acc
+        self.dcc = dcc
+        self.speed = speed
+class Motor(Drives):
+    def __init__(self, name, status = False, dir = "cw", acc = 100, dcc = 100, speed: float = 200):
+        super().__init__(name, status, dir, acc, dcc, speed)
+
 
     def on(self):
         if not self.status:
             print("Motor turned on")
         self.status = True
+
         
     def off(self):
         if self.status:
@@ -86,6 +95,7 @@ def writeOutputs(sensor: Sensor, motor: Motor, cylinder: Cylinder):
 
 
 def main():
+    # put all the global variables before the main loop 
     sensor = Sensor("PartAtCylinder")
     motor = Motor("ConveyorMotor")
     cylinder = Cylinder("PusherCylinder")
