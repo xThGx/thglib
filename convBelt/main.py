@@ -47,7 +47,7 @@ class Motor(Drives):
         if self.status:
             print("Motor turned off")
         self.status = False
-class Cylinder(Machine):
+class Cylinder():
     def __init__(self, name):
         self.name: str = name
         self.status: bool = False
@@ -137,7 +137,7 @@ def setEMS(m: Machine):
     m.runs = False
     m.eStopOk = False
     print("E-Stop pressed!")
-    m.motor.setOff
+    m.motor.setOff()
 
 def setEMS_Quit(m: Machine):
     if not m.safetyOk:
