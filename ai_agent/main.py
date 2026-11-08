@@ -2,8 +2,8 @@ import os
 from dotenv import load_dotenv
 import argparse
 
-
 def main():
+# def main(question):
     print("Hello from ai-agent!")
     
     load_dotenv()
@@ -34,6 +34,7 @@ def main():
         {
             "role": "user",
             "content": args.user_prompt,
+            # "content": question,
         }
     ]
     response = client.chat.completions.create(
@@ -47,10 +48,13 @@ def main():
 
     if args.verbose:
         print("User prompt:", args.user_prompt)
+        # print("User prompt:", question)
         print("Prompt tokens:", response.usage.prompt_tokens)
         print("Response tokens:", response.usage.completion_tokens)
     print(response.choices[0].message.content)
 
 
 if __name__ == "__main__":
+    # question = input("Enter your question: ")
+    # main(question)
     main()

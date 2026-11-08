@@ -1,5 +1,5 @@
 from functions.get_files_info import get_files_info
-import os
+#from ai_agent import main
 
 
 if __name__ == "__main__":
